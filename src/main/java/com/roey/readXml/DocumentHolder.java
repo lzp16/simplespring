@@ -1,4 +1,4 @@
-package com.roey;
+package com.roey.readXml;
 
 import org.dom4j.Document;
 

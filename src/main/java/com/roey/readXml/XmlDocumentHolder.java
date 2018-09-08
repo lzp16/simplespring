@@ -1,4 +1,4 @@
-package com.roey;
+package com.roey.readXml;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -6,6 +6,7 @@ import org.dom4j.io.SAXReader;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,8 +28,8 @@ public class XmlDocumentHolder implements DocumentHolder {
 
     private Document readDocument(String filePath) {
         Document doc = null;
-        SAXReader reader = new SAXReader(true);
-        reader.setEntityResolver(new IocEntityResolver());
+        SAXReader reader = new SAXReader();
+//        reader.setEntityResolver(new IocEntityResolver());
         File xmlFile = new File(filePath);
         try {
             doc = reader.read(xmlFile);
@@ -37,5 +38,13 @@ public class XmlDocumentHolder implements DocumentHolder {
             e.printStackTrace();
         }
         return doc;
+    }
+
+    public static void main(String[] args) {
+        String basePath = XmlDocumentHolder.class.getClassLoader().getResource(".").getFile().substring(1);
+        DocumentHolder documentHolder = new XmlDocumentHolder();
+        Document document = documentHolder.getDocument(basePath + "spring.xml");
+        List elements = document.getRootElement().elements();
+        System.out.println(document.getDocType());
     }
 }

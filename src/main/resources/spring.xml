@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans>
+    <!--<bean id="pad1" class="com.wyq.Bean.Pad" scope="singleton">-->
+        <!--<constructor-arg>-->
+            <!--<value type="java.lang.double">1999.9</value>-->
+        <!--</constructor-arg>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash; ??? &ndash;&gt;-->
+    <!--<bean id="pad2" class="com.wyq.Bean.Pad" lazy-init="true"-->
+          <!--autowire="no">-->
+        <!--<constructor-arg index="0" value="1"></constructor-arg>-->
+        <!--<property name="size" value="12"></property>-->
+    <!--</bean>-->
+
+    <!--<bean id="person" class="com.wyq.Bean.Person" autowire="byName">-->
+        <!--<property name="name" value="Yrion"></property>-->
+    <!--</bean>-->
+    <bean id="person" class="com.roey.test.Person">
+        <property name="name" value="xiaoming"/>
+        <property name="age" value="12"/>
+    </bean>
+</beans>
